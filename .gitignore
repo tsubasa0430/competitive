@@ -1,0 +1,19 @@
+# ビルド成果物
+a.out
+*.out
+*.exe
+
+# 作業用ファイル（sh/io.sh の入出力・試し書き用）
+in.txt
+out.txt
+*.txt
+main.cpp
+
+# Windows からコピーしたときに付く付加情報
+*:Zone.Identifier
+
+# paiza（スキルチェック問題は公開しない）
+paiza/
+
+# 個人のエディタ設定
+.vscode/
