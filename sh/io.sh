@@ -5,18 +5,18 @@ ROOT_DIR="$HOME/competitive"
 
 # 1. 実行ファイル (a.out) の存在チェック
 if [ ! -f "$ROOT_DIR/a.out" ]; then
-    echo "エラー: 実行ファイル 'a.out' が見つかりません！"
-    echo "先に bd コマンドでプログラムをコンパイルしてください。"
+    echo "❌ エラー: 実行ファイル 'a.out' が見つかりません！"
+    echo "💡 先に bd コマンドでプログラムをコンパイルしてください。"
     exit 1
 fi
 
 # 2. in.txt の存在チェック (誤って削除してしまった場合の対策)
 if [ ! -f "$ROOT_DIR/in.txt" ]; then
-    echo "警告: '$ROOT_DIR/in.txt' が見つかりません。空のファイルを作成して実行します。"
+    echo "⚠️ 警告: '$ROOT_DIR/in.txt' が見つかりません。空のファイルを作成して実行します。"
     touch "$ROOT_DIR/in.txt"
 fi
 
-echo "実行開始..."
+echo "🚀 実行開始..."
 
 # 3. 実行と出力の分岐
 if [ $# -eq 0 ]; then
@@ -39,8 +39,8 @@ fi
 
 # 4. 実行結果の判定 (RE: 実行時エラーの検知)
 if [ $EXIT_CODE -eq 0 ]; then
-    echo "正常終了 (出力先: $OUT_DEST)"
+    echo "✅ 正常終了 (出力先: $OUT_DEST)"
 else
-    echo "実行時エラー (RE) が発生しました！ (終了コード: $EXIT_CODE)"
+    echo "❌ 実行時エラー (RE) が発生しました！ (終了コード: $EXIT_CODE)"
     # ※エラーの詳細はターミナルに標準エラー出力として表示されます
 fi

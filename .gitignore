@@ -17,3 +17,16 @@ paiza/
 
 # 個人のエディタ設定
 .vscode/
+fxy
+fxy.cc
+fxy.data
+fxy.gpl
+sinx.cc
+exp.gpl
+newton-raph/
+programingB/
+report2/
+report3/
+raytracing-engine/
+raytracer
+test.cpp

@@ -7,8 +7,7 @@ int main() {
     cin >> A >> B >> C;
     if(A != B && B == C){
         cout << "Yes" << endl;
-    }
-    else{
+    }else{
         cout << "No" << endl;
     }
 }

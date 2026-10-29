@@ -5,19 +5,18 @@ using namespace std;
 int main() {
     int N;
     cin >> N;
-    vector<int> A(N),B(N);
-    for(int i = 0; i < N; i++){
+    vector<int> A(N), B(N);
+    rep(i, 0, N) {
         cin >> A[i] >> B[i];
     }
     int M;
     cin >> M;
-    vector<string> S(M);
-    //長さ、文字目、どのアルファベットかa=0
     bool memo[12][12][26] = {false};
-    for(int i = 0; i < M; i++){
+    vector<string> S(M);
+    rep(i, 0, M) {
         cin >> S[i];
-        for(int j = 0; j < S[i].size(); j++){
-            memo[S[i].size()][j][S[i][j] - 'a'] = true;
+        for(int pos = 0; pos < S[i].size(); pos++) {
+            memo[S[i].size()][pos][S[i][pos]-'a'] = true;
         }
     }
 
@@ -26,17 +25,12 @@ int main() {
             cout << "No" << endl;
             continue;
         }
-        bool ok = true;
         for(int j = 0; j < N; j++){
-            if(!memo[A[j]][B[j]-1][S[i][j]-'a']){
-                ok = false;
-                break;
-            }}
-            if(ok){
+            if(memo[A[j]][B[j]][S[i][j]-'a']){
                 cout << "Yes" << endl;
-            }else{
-                cout << "No" << endl;
-            }
-            
+                break;
         }
     }
+}
+    
+}

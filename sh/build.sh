@@ -19,12 +19,12 @@ fi
 # 【重要】ファイルの存在チェック
 # ファイルが存在しない場合はエラーを出して即座に終了する
 if [ ! -f "$SOURCE_FILE" ]; then
-    echo "エラー: '$SOURCE_FILE' が見つかりません！"
-    echo "使い方: bd [ディレクトリ] [ファイル] (例: bd ABC453 A.cpp)"
+    echo "❌ エラー: '$SOURCE_FILE' が見つかりません！"
+    echo "💡 使い方: bd [ディレクトリ] [ファイル] (例: bd ABC453 A.cpp)"
     exit 1
 fi
 
-echo "コンパイル中: $SOURCE_FILE"
+echo "🔨 コンパイル中: $SOURCE_FILE"
 
 # "atcoder"の出現回数をカウント
 ATCODER_COUNT=$(grep -o "atcoder" "$SOURCE_FILE" | wc -l)
@@ -41,8 +41,8 @@ g++ $CXX_FLAGS "$SOURCE_FILE" -o "$ROOT_DIR/a.out"
 
 # コンパイルの成否を判定してメッセージを表示
 if [ $? -eq 0 ]; then
-    echo "コンパイル成功！ (実行可能です)"
+    echo "✅ コンパイル成功！ (実行可能です)"
 else
-    echo "コンパイル失敗..."
+    echo "❌ コンパイル失敗..."
     exit 1
 fi

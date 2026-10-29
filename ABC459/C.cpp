@@ -3,33 +3,32 @@ using namespace std;
 #define rep(i, a, b) for(int i = a; i < b; i++)
 
 int main() {
-    int N, Q, mn = 0;
+    int N, Q;
     cin >> N >> Q;
-    vector<int> A(N), kaisu(Q+2, 0), ijo(Q+2, 0);
-    kaisu[0] = N;
+    //Aはiに何個入ってるか、ijoはi個以上がいくつ
+    //cntはi個入ってるとこが何個あるか
+    int mn = 0;
+    vector<int> A(N+2), ijo(Q+2), cnt(Q+2);
     ijo[0] = N;
-    for(int i = 0; i < Q; i++){
+    cnt[0] = N;
+    while(Q--){
         int a;
         cin >> a;
         if(a == 1){
             int x;
             cin >> x;
             A[x-1]++;
-            kaisu[A[x-1]]++;
-            kaisu[A[x-1]-1]--;
+            cnt[A[x-1]]++;
+            cnt[A[x-1]-1]--;
             ijo[A[x-1]]++;
-            if(kaisu[mn] == 0){
-                mn++;
-            }
-        }else if(a == 2){
+            if(cnt[mn] == 0) mn++;
+        }
+        if(a == 2){
             int y;
             cin >> y;
-            int target = y + mn;
-            if(target > Q){
-                cout << 0 << endl;
-            }else{
-                cout << ijo[target] << endl;
-            }
+            int ans  = y + mn;
+            if(ans >= ijo.size()) cout << 0 << endl;
+            else cout << ijo[ans] << endl;
         }
     }
 }
